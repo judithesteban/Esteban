@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Name Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Full Name Calculator</h1>
+
+        <div class="name-section">
+            <input type="text" id="firstName" placeholder="First Name">
+            <input type="text" id="middleName" placeholder="Middle Name">
+            <input type="text" id="lastName" placeholder="Last Name">
+
+            <button class="name-btn" onclick="showFullName()">
+                Show Full Name
+            </button>
+
+            <h2 id="fullName">Your Name</h2>
+        </div>
+
+        <hr>
+
+        <h2>Calculator</h2>
+
+        <input type="number" id="num1" placeholder="Enter First Number">
+        <input type="number" id="num2" placeholder="Enter Second Number">
+
+        <div class="buttons">
+            <button onclick="calculate('+')">+</button>
+            <button onclick="calculate('-')">−</button>
+            <button onclick="calculate('*')">×</button>
+            <button onclick="calculate('/')">÷</button>
+        </div>
+
+        <div id="result">
+            Result: 0
+        </div>
+
+    </div>
+
+    <script>
+
+        function showFullName() {
+
+            let first = document.getElementById("firstName").value;
+            let middle = document.getElementById("middleName").value;
+            let last = document.getElementById("lastName").value;
+
+            document.getElementById("fullName").innerHTML =
+                first + " " + middle + " " + last;
+        }
+
+
+        function calculate(operator) {
+
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            let result;
+
+            if (operator === "+") {
+                result = num1 + num2;
+            }
+
+            else if (operator === "-") {
+                result = num1 - num2;
+            }
+
+            else if (operator === "*") {
+                result = num1 * num2;
+            }
+
+            else if (operator === "/") {
+
+                if (num2 === 0) {
+                    result = "Cannot divide by zero";
+                } else {
+                    result = num1 / num2;
+                }
+            }
+
+            document.getElementById("result").innerHTML =
+                "Result: " + result;
+        }
+
+    </script>
+
+</body>
+</html>
